@@ -1,0 +1,91 @@
+.nav-wrapper {
+    width: 100%;
+    max-width: 1470px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 3rem 0 3rem;
+    /* position: fixed; */
+    top: 0;
+    z-index: 10;
+    gap: 4rem;
+  }
+  .nav-container {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 4rem;
+    color: white;
+
+  }
+  
+  .links-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4.5rem;
+    height: 5.6rem;
+    border-radius: 2.8rem;
+    padding: 0 3.2rem;
+    background: linear-gradient(to right,#0097b2bb, #7ed957c8);
+}
+  .nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+  }
+  .nav-link{
+    font-size: 1.6rem;
+    font-weight: 200;
+    width: fit-content;
+    position: relative;
+    color: white;
+    padding: 1rem;
+  }
+  .nav-link::before{
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: var(--very-light-green);
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 3.2rem;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    scale: 0;
+
+
+  }
+  .nav-link:active::before{
+    scale: 1;
+  }
+  .nav-item:hover{
+    color: var(--Orange);
+  }
+  .toggle-btn {
+    display: none;
+  }
+  .profile-toggle-container{
+    display: flex;
+    gap: 2.5rem;
+    align-items: center;
+  }
+  .profile-img{
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

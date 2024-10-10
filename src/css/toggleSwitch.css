@@ -1,0 +1,14 @@
+.toggle-container{
+    display: flex;
+    align-items: center;
+}
+.MuiSwitch-switchBase{
+background-color: white;
+}
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track{
+    background: linear-gradient(to right, #7ed957, #0097b2);
+
+}
+.toggle-icon{
+    color: white;
+}

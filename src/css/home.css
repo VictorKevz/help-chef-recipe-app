@@ -1,0 +1,61 @@
+.home-wrapper {
+  width: 100%;
+  min-height: 84.3vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../assets/images/desktop-home-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  position: relative;
+  margin-top: 6rem;
+}
+.home-text-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 2;
+  text-align: center;
+}
+.home-title {
+  font-size: clamp(3.5rem, 8vw, 10rem);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+}
+.home-parag {
+  max-width: 750px;
+  width: 100%;
+  font-weight: 400;
+  color: white;
+}
+.home-cta {
+  height: 5.6rem;
+  background: linear-gradient(to right, #0097b2, #7ed957);
+  width: fit-content;
+  padding: 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.8rem;
+  font-weight: 500;
+  position: absolute;
+  bottom: 4rem;
+  z-index: 2;
+  border-radius: 2.8rem;
+  color: white;
+}
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, #4acc1220, #0489a128);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
