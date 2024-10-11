@@ -4,12 +4,13 @@ import { NavLink } from "react-router-dom";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import CategoryIcon from "@mui/icons-material/Category";
 import StyleIcon from "@mui/icons-material/Style";
-import ingridients from "../assets/images/ingridients.png";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 
 import "../css/detailedMeal.css";
 import Instructions from "../components/Instructions";
 
-function DetailedMeal() {
+function DetailedMeal({ setFavorites, favorites }) {
   const [meal, setMeal] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -26,7 +27,6 @@ function DetailedMeal() {
         const data = await res.json();
         setMeal(data.meals[0]);
         setLoading(false);
-        console.log(data.meals[0]);
       } catch (error) {
         setError(error.message);
         setLoading(false);
@@ -34,6 +34,19 @@ function DetailedMeal() {
     };
     fetchMeal();
   }, [mealName]);
+
+  const addToFavorites = (currentID) => {
+    setFavorites((prevFavorites) => {
+      const isFavorite = prevFavorites.some((fav) => fav.idMeal === currentID);
+      if (isFavorite) {
+        return prevFavorites.filter((meal) => meal.idMeal !== currentID);
+      } else {
+        return [...prevFavorites, meal];
+      }
+    });
+    console.log(favorites);
+  };
+  const isFavorite = favorites.some((fav) => fav.idMeal === meal.idMeal);
 
   const ingredients = [];
   const measures = [];
@@ -43,8 +56,8 @@ function DetailedMeal() {
     if (ingredient) {
       ingredients.push(ingredient);
     }
-    if (measure !== "" && measure !== " ") {
-      measures.push(measure);
+    if (measure !== "" && measure !== " " && ingredient && ingredient.trim() !== "") {
+      measures.push(`${measure} ${ingredient}`);
     }
   }
   return (
@@ -68,7 +81,7 @@ function DetailedMeal() {
             </p>
             <h1 className="meal-detailed-title">{meal.strMeal}</h1>
           </div>
-          <NavLink to="/recipes" className="meal-link detailed">
+          <NavLink to="/recipes" className="meal-back-btn">
             Go Back
           </NavLink>
           <div className="dots-wrapper">
@@ -76,6 +89,17 @@ function DetailedMeal() {
             <span className="dot"></span>
             <span className="dot"></span>
           </div>
+          <button
+            type="button"
+            className={`like-btn`}
+            onClick={() => addToFavorites(meal?.idMeal)}
+          >
+            {isFavorite ? (
+              <FavoriteIcon fontSize="large" className={`like-icon`} />
+            ) : (
+              <FavoriteBorderIcon fontSize="large" className={`like-icon`} />
+            )}
+          </button>
         </div>
         <ul className="meal-labels">
           <li className="label">
@@ -86,10 +110,12 @@ function DetailedMeal() {
             <CategoryIcon fontSize="large" className="tag-icon" />
             {meal?.strCategory}
           </li>
-          <li className="label">
+          {meal?.strTags && (
+            <li className="label">
             <StyleIcon fontSize="large" className="tag-icon" />
             {meal?.strTags}
           </li>
+          )}
         </ul>
         <div className="instructions-ingridients-measures-wrapper">
           <Instructions meal={meal} />
@@ -103,11 +129,7 @@ function DetailedMeal() {
                   </li>
                 ))}
               </ul>
-              <img
-                src={ingridients}
-                alt="Ingredients illustration"
-                className="ingridients-img"
-              />
+              
             </div>
             <div className="measures-wrapper">
               <h2 className="measures-title">Measures</h2>
@@ -118,7 +140,6 @@ function DetailedMeal() {
                   </li>
                 ))}
               </ul>
-              {/* <img src={ingridients} alt="measures illustration" className="ingridients-img" /> */}
             </div>
           </div>
         </div>

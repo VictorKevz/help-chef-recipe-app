@@ -29,8 +29,9 @@
 .home-parag {
   max-width: 750px;
   width: 100%;
-  font-weight: 400;
+  font-weight: 500;
   color: white;
+  font-size: 2rem;
 }
 .home-cta {
   height: 5.6rem;

@@ -20,6 +20,11 @@ h1,h2,h3{
   color: white;
   font-weight: 800;
 }
+h1{
+  font-size: clamp(3.5rem, 8vw, 6rem);
+
+  line-height: 1.25;
+}
 button {
   background: none;
   border: none;

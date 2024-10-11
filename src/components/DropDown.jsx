@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
-import "../css/recipes.css";
+import "../css/filters.css";
 
 function DropDown({ sortOption, setSortOption }) {
   const [dropDown, setDropDown] = useState(false);

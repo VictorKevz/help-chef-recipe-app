@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import "../css/navbar.css";
 
 import ToggleSwitch from "./ToggleSwitch";
-import chefImage from "../assets/images/chef.webp";
 import { NavLink } from "react-router-dom";
 
-function Navbar({ isDark, setDark }) {
+function Navbar({ isDark, setDark, favorites }) {
   const [isOpen, setOpen] = useState(false);
   return (
     <header className="nav-wrapper">
@@ -35,14 +35,14 @@ function Navbar({ isDark, setDark }) {
           )}
         </button>
       </nav>
-      <div className="profile-toggle-container">
+      <div className="favorites-toggle-container">
         <ToggleSwitch isDark={isDark} setDark={setDark} />
-
-        <img
-          src={chefImage}
-          className="profile-img"
-          alt="An profile picture of a male chef"
-        />
+        <NavLink to="/favorites" className="favorites-image-wrapper">
+          {favorites.length > 0 && (
+            <span className="favorites-num">{favorites.length}</span>
+          )}
+          <FavoriteIcon fontSize="large" className={`fav-icon`} />
+        </NavLink>
       </div>
     </header>
   );

@@ -26,6 +26,8 @@
   align-items: center;
   padding: 3rem;
   background: linear-gradient(to left, #363636, #1e1e1e, #363636);
+  border: 1px solid var(--dark-gray);
+  background-size: cover;
   position: relative;
 }
 .detailed-meal-image-wrapper {
@@ -34,13 +36,14 @@
 .overlay.meal {
   border-radius: 35% 5% 35% 5%;
   backdrop-filter: none;
+  z-index: 2;
 }
 .meal-img {
   padding: 1rem;
   height: 300px;
   border-radius: 35% 5% 35% 5%;
 }
-.meal-link.detailed {
+.meal-back-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,6 +55,7 @@
   position: absolute;
   left: 3rem;
   top: 3rem;
+  background: var(--color-bg);
 }
 .dots-wrapper {
   position: absolute;
@@ -59,6 +63,16 @@
   left: 4rem;
   display: flex;
   gap: 0.8rem;
+}
+.like-btn{
+    position: absolute;
+    bottom: 3rem;
+    right: 3rem;
+    color: #7ed957;
+    scale: 1.5;
+}
+.selected{
+    background:var(--color-bg);
 }
 .meal-hero-text {
   display: flex;
@@ -69,11 +83,11 @@
   color: var(--very-light-green);
   font-weight: 700;
 }
-.meal-detailed-title {
+/* .meal-detailed-title {
   font-size: clamp(3.5rem, 8vw, 6rem);
   color: var(--light-gray);
   line-height: 1.25;
-}
+} */
 .meal-labels {
   width: 100%;
   display: flex;
@@ -120,7 +134,7 @@
   border-radius: 1.2rem;
 }
 .steps-title,.measures-title {
-  font-size: clamp(3rem, 8vw, 5rem);
+  font-size: clamp(2rem, 8vw, 3.5rem);
 }
 .steps-wrapper {
   width: 100%;
@@ -146,7 +160,7 @@
    
   }
   .step-heading{
-    font-size: clamp(2rem,8vw,3rem);
+    font-size: clamp(1.6rem,8vw,2.5rem);
   }
 .step-btn {
   display: flex;
@@ -171,14 +185,14 @@
     color: white;
     border-radius: 1.2rem;
 }
-.step-items:not(:last-child),.ingridient-item:not(:last-child){
+.step-items,.ingridient-item{
     padding-bottom: 3rem;
     border-bottom: 1px solid var(--dark-gray);
 }
 /* ............INGRIDIENTS STYLES..................... */
 .ingridients-measures-wrapper{
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 4rem;
 
 }
@@ -196,8 +210,8 @@ font-size: clamp(3rem, 8vw, 5rem);
 }
 .ingridient-items,.measures-items{
     margin-top: 3rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 2rem;
     z-index: 5;
 
@@ -205,15 +219,22 @@ font-size: clamp(3rem, 8vw, 5rem);
 .ingridients-img{
     position: absolute;
     right: 3rem;
-    top: 50%;
+    bottom: 3rem;
     width: 100px;
     z-index: 1;
 }
+
 /* ............MEASURES STYLES..................... */
 .measures-wrapper{
     background: var(--color-bg);
 }
 .measures-item:not(:last-child){
 padding-bottom: 1.5rem;
-border-bottom: 1px solid #add89a3e;
+border-bottom: 1px solid #add89a1a;
+}
+.cirle{
+    width: 3rem;
+    height: 3rem;
+    border: 1px solid #0097b2;
+    border-radius: 50%;
 }

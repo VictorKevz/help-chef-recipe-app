@@ -1,5 +1,5 @@
 import React from "react";
-import "../css/recipes.css";
+import "../css/categories.css";
 
 function Categories({ categories, onUpdate,selectedCategory }) {
   return (

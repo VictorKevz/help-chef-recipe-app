@@ -1,6 +1,6 @@
 import { SearchOutlined } from "@mui/icons-material";
 import React from "react";
-import "../css/recipes.css";
+import "../css/filters.css";
 
 function Search({ setQuery, query }) {
   const handleChange = (e) => {

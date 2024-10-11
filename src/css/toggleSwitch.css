@@ -1,14 +1,32 @@
-.toggle-container{
-    display: flex;
-    align-items: center;
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--dark-gray);
+  padding: 0 1.5rem;
+  border-radius: 2.8rem;
+  height: 5.6rem;
+  cursor: pointer;
 }
-.MuiSwitch-switchBase{
-background-color: white;
+.MuiSwitch-switchBase {
+  background-color: white;
 }
-.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track{
-    background: linear-gradient(to right, #7ed957, #0097b2);
-
+.MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+  background: linear-gradient(to left, #7ed957, #0097b2);
 }
-.toggle-icon{
-    color: white;
+.toggle-icon {
+  color: white;
+}
+.toggle-container:before {
+  content: "Switch theme";
+  position: absolute;
+  top: 100%;
+  margin-top: 0.6rem;
+  color: white;
+  opacity: 0;
+  font-size: 1.4rem;
+}
+.toggle-container:hover::before {
+  transition: 0.3s ease-in;
+  opacity: 1;
 }

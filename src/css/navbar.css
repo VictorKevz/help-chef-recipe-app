@@ -63,29 +63,59 @@
     align-items: center;
     justify-content: center;
     scale: 0;
-
-
   }
   .nav-link:active::before{
     scale: 1;
   }
-  .nav-item:hover{
-    color: var(--Orange);
+  .nav-link:hover{
+    font-weight: 500;
   }
   .toggle-btn {
     display: none;
   }
-  .profile-toggle-container{
+  .favorites-toggle-container{
     display: flex;
-    gap: 2.5rem;
+    gap: 4.5rem;
     align-items: center;
+    position: relative;
+    cursor: pointer;
   }
-  .profile-img{
-    width: 5rem;
-    height: 5rem;
-    border-radius: 50%;
-    border: 2px solid white;
+  .favorites-image-wrapper{
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    border: 1px solid var(--dark-gray);
+    padding: 0 3.5rem;
+    border-radius: 2.8rem;
+    height: 5.6rem;
+  }
+  .fav-icon{
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--very-light-green);
+scale: 1.3;    
+  }
+  .favorites-num{
+    margin-top: 5px;
+    color: white;
+    font-size: 1.6rem;
+    font-weight: 900;
+  }
+  .favorites-image-wrapper:before{
+    content: "Favorites";
+    position: absolute;
+    top: 100%;
+    margin-top: .6rem;
+    color: rgba(255, 255, 255, 0.857);
+    opacity: 0;
+    font-size: 1.4rem;
+    
+  }
+  .favorites-image-wrapper:hover::before{
+transition: .3s ease-in;
+opacity: 1;
   }
