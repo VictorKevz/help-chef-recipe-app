@@ -24,8 +24,9 @@ function Navbar({ isDark, setDark, favorites }) {
           <NavLink className="nav-link" to="/recipes">
             <li className="nav-item">Recipes</li>
           </NavLink>
-
-          <li className="nav-item">Contact</li>
+          <NavLink className="nav-link" to="/contact">
+            <li className="nav-item">Contact</li>
+          </NavLink>
         </ul>
         <button className="toggle-btn" onClick={() => setOpen(!open)}>
           {isOpen ? (

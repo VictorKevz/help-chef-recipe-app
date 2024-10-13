@@ -6,6 +6,7 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { NavLink } from "react-router-dom";
 import empty from "../assets/images/empty.webp";
+import soon from "../assets/images/custom.webp";
 
 function Favorites({ favorites, setFavorites }) {
   const deleteMeal = (currentID) => {
@@ -14,6 +15,7 @@ function Favorites({ favorites, setFavorites }) {
     });
   };
   return (
+    <section className="favorites-container">
     <section className="favorites-wrapper">
       <header className="favorites-header">
         <img
@@ -69,13 +71,27 @@ function Favorites({ favorites, setFavorites }) {
       </article>
       {favorites.length <= 0 && (
         <article className="empty-favorties">
-          <h3 className="empty-title">You haven't liked❤️ any recipes yet!</h3>
+          <h2 className="empty-title">You haven't liked any recipes yet!</h2>
           <p className="empty-parag">
             All the recipes you like will appear here!
           </p>
           <img src={empty} alt="Empty illustration" className="empty-img" />
         </article>
       )}
+      
+    </section>
+    <article className="custom-meals">
+        <div className="custom-text">
+        <h2 className="custom-title">Create Your Own Recipes</h2>
+        <p className="custom-parag">
+          Create, view and edit your own recipes in one place!
+        </p>
+        </div>
+        
+        <div className="custom-image-wrapper">
+          <img src={soon} alt="Comming soon illustration" className="custom-img" />
+        </div>
+      </article>
     </section>
   );
 }

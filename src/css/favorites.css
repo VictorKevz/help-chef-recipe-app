@@ -1,10 +1,19 @@
+.favorites-container   {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content:center ;
+    padding: 3rem;
+
+}
+
 .favorites-wrapper {
   margin-top: 8rem;
-  max-width: 1470px;
+  max-width: 1440px;
   width: 100%;
   display: flex;
   align-items: flex-start;
-  padding: 3rem;
   justify-content: space-between;
   gap: 4rem;
   /* background-color: #0097b2; */
@@ -129,6 +138,47 @@ text-align: center;
     font-size: clamp(2rem,8vw,4rem);
 }
 .empty-img{
-    width: 80%;
+    max-width: 400px;
+    width: 100%;
     height: auto;
+}
+
+.custom-meals{
+    margin-top: 6rem;
+    max-width: 1440px;
+    width: 100%;
+    min-height: 250px;
+    border: 1px solid #0097b2;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+    padding: 4rem 5rem;
+    border-radius: 15rem 1.2rem 15rem 1.2rem;
+}
+.custom-text{
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+}
+.custom-parag{
+    margin-top: 1.5rem;
+}
+.custom-title{
+    font-size: clamp(3rem,8vw,5rem);
+}
+.custom-subtitle{
+    font-size: clamp(2rem,8vw,3rem);
+  text-transform: uppercase;
+  letter-spacing: .04rem;
+}
+.custom-image-wrapper{
+    background: var(--dark-bg);
+    border-radius: 50%;
+    border: 1px dashed var(--very-light-green);
+}
+.custom-img{
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    padding: 2rem;
 }

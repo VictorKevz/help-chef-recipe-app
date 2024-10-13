@@ -1,6 +1,7 @@
 .meals-wrapper {
   width: fit-content;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
   gap: 3rem;
   flex-wrap: wrap;
   align-items: center;
@@ -11,16 +12,21 @@
   background: var(--dark-bg);
   padding: 4rem 2rem 4rem 2rem;
   border-radius: 8rem 1.2rem 8rem 1.2rem;
+  border-radius: 2.8rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #0097b2;
+  /* border: 1px solid #0097b2; */
   place-items: right;
-  box-shadow: 0 3rem 2rem -1rem #0097b20d;
+  /* box-shadow: 0 3rem 1rem -1rem #0097b20d; */
+  /* max-width: 250px; */
+  width: 100%;
+  background: linear-gradient(to bottom, #1E1E1E,#363636);
+
 }
 .meals-image-wrapper {
   background: var(--color-bg);
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -28,7 +34,7 @@
   margin-top: 2.5rem;
 }
 .meals-img {
-  width: 160px;
+  width: 150px;
   height: auto;
   border-radius: 1.2rem;
   box-shadow: 0 3rem 2rem -1rem var(--very-dark-brown);
@@ -39,6 +45,7 @@
   font-weight: 700;
   margin-top: 1rem;
   flex-wrap: wrap;
+  text-align: center;
 }
 .meal-like-link-wrapper {
   margin-top: 2.5rem;

@@ -9,7 +9,11 @@ function Recipes() {
   const [query, setQuery] = useState("");
   const [sortOption, setSortOption] = useState("");
   const [categories, setCategories] = useState([]);
-  const [selectedCategory, setSelectedCategory] = useState("Dessert");
+
+  const [selectedCategory, setSelectedCategory] = useState(() => {
+    const savedCategory = localStorage.getItem("category");
+    return savedCategory !== null ? JSON.parse(savedCategory) : "Dessert";
+  });
   const [meals, setMeals] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -38,6 +42,10 @@ function Recipes() {
     };
     fetchCategories();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("category",JSON.stringify(selectedCategory))
+  },[selectedCategory])
   return (
     <section className="recipe-wrapper">
       <div className="filters-wrapper">
