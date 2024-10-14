@@ -58,6 +58,5 @@
   left: 0;
   bottom: 0;
   background: linear-gradient(to bottom, #4acc1220, #0489a128);
-  backdrop-filter: blur(2px);
   z-index: 1;
 }

@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 3rem;
+  padding: 0 2rem;
   min-height: fit-content;
 }
 .meal-container {
@@ -16,7 +16,6 @@
   justify-content: center;
 }
 .meal-hero-wrapper {
-  /* max-width: 1110px; */
   width: 100%;
   min-height: fit-content;
   border-radius: 1.2rem;
@@ -25,7 +24,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 3rem;
-  background: linear-gradient(to left, #363636, #1e1e1e, #363636);
+  background: linear-gradient(to top, #363636, #1e1e1e);
   border: 1px solid var(--dark-gray);
   background-size: cover;
   position: relative;
@@ -83,11 +82,7 @@
   color: var(--very-light-green);
   font-weight: 700;
 }
-/* .meal-detailed-title {
-  font-size: clamp(3.5rem, 8vw, 6rem);
-  color: var(--light-gray);
-  line-height: 1.25;
-} */
+
 .meal-labels {
   width: 100%;
   display: flex;
@@ -136,7 +131,7 @@
   border-radius: 1.2rem;
 }
 .steps-title,.measures-title {
-  font-size: clamp(2rem, 8vw, 3.5rem);
+  font-size: clamp(2rem, 10vw, 3rem);
 }
 .steps-wrapper {
   width: 100%;

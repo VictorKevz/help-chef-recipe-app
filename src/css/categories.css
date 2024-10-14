@@ -3,12 +3,11 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
 
-  row-gap: 3rem;
-  column-gap: 2rem;
+  gap: 3rem;
   background-color: var(--dark-gray);
   background: linear-gradient(to top, #1e1e1e, #363636);
 
-  padding: 3rem;
+  padding: 3rem 4rem;
   border-radius: 1.2rem;
 }
 .category-item {
@@ -16,7 +15,7 @@
   display: flex;
   align-items: center;
   flex-direction: row-reverse;
-  gap: 1rem;
+  gap: .5rem;
   font-size: 1.5rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -25,7 +24,7 @@
   color: white;
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  padding-left: 1rem;
+  padding-left: .5rem;
   margin-left: auto;
 }
 .category-img {

@@ -31,18 +31,17 @@ body {
 }
 /* NAVBAR RESPONSIVENESS */
 @media (width <=1140px) {
-  
   .nav-container {
     align-items: center;
   }
-  .logo{
+  .logo {
     align-self: flex-start;
   }
   .favorites-toggle-container {
     flex-direction: column;
     position: absolute;
     top: 100%;
-    margin-top:  3.5rem;
+    margin-top: 3.5rem;
     border: none;
     background-color: var(--very-dark-brown);
     border: 1px solid var(--dark-gray);
@@ -51,27 +50,25 @@ body {
     max-width: 220px;
     width: 100%;
     border-radius: 1.2rem;
-    align-items: flex-start;
+    align-items: center;
     right: 0;
     display: none;
   }
-  .favorites-toggle-container.open{
+  .favorites-toggle-container.open {
     display: flex;
   }
-  .settings-btn{
+  .settings-btn {
     display: flex;
-
   }
-  .toggle-container,.favorites-image-wrapper {
+  .toggle-container {
     width: 100%;
   }
-   
 }
 @media (width <=930px) {
-  .toggle-btn{
+  .toggle-btn {
     display: flex;
   }
-  .links-wrapper{
+  .links-wrapper {
     flex-direction: column;
     position: absolute;
     top: 100%;
@@ -80,18 +77,25 @@ body {
     background-color: var(--very-dark-brown);
     border: 1px solid #4e4d4d;
     height: fit-content;
-    padding: 2.2rem 1.5rem ;
+    padding: 2.2rem 1.5rem;
     max-width: 220px;
     width: 100%;
     border-radius: 1.2rem;
     align-items: flex-start;
     display: none;
-  } 
-  .links-wrapper.open{
+  }
+  .links-wrapper.open {
     display: flex;
   }
-  /*...MEALS STYLES at 930vw  */
-  
+  .home-wrapper {
+    background-image: url("./assets/images/mobile-home-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+
+
+ 
+  } 
 }
 @media (width <=550px) {
   .logo {
@@ -104,9 +108,12 @@ body {
   .meals-wrapper {
     grid-template-columns: 1fr 1fr;
   }
+  .search-btn {
+    right: 0;
+  }
 }
 @media (width <=1160px) {
-  .categories-wrapper  {
+  .categories-wrapper {
     grid-template-columns: 1fr;
   }
 }
@@ -118,6 +125,7 @@ body {
     max-width: 300px;
     width: 100%;
   }
+ 
 }
 @media (width <=675px) {
   .categories-meals-wrapper {
@@ -125,22 +133,131 @@ body {
     align-items: center;
   }
   .category-item {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
   }
   .category-img {
     width: 4rem;
     height: 4rem;
   }
-  .categories-wrapper,.meals-wrapper  {
+  .categories-wrapper,
+  .meals-wrapper {
     grid-template-columns: 1fr 1fr;
+    padding: 1.5rem;
   }
   .search-wrapper {
     max-width: 100%;
   }
 }
 @media (width <=560px) {
-  .categories-wrapper,.meals-wrapper  {
+  .meals-wrapper {
     grid-template-columns: 1fr;
     width: 100%;
+  }
+  .category-item {
+    width: 100%;
+    margin-left: 0;
+  }
+  
+}
+
+/* PROFILE PAGE STYLES........... */
+@media (width <=870px) {
+  .profile-wrapper {
+    grid-template-columns: 1fr;
+  }
+  .profile-aside-wrapper {
+    max-width: 100%;
+  }
+  .inputs-wrapper {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .navigation-item {
+    justify-content: center;
+    padding: 0;
+    font-size: 1.3rem;
+    max-width: none;
+  }
+}
+@media (width <=580px) {
+  .favorite-item-card {
+    flex-direction: column;
+  }
+  .favorite-link-delete-wrapper {
+    width: 100%;
+  }
+  .fav-link,
+  .delete-btn {
+    max-width: 100%;
+    width: 100%;
+  }
+  .favorite-labels {
+    flex-direction: column;
+  }
+  .custom-meals {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+/* SINGLE MEAL PAGE STYLES........... */
+@media (width <=1024px) {
+  .instructions-ingridients-measures-wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .ingridients-measures-wrapper {
+    flex-direction: row-reverse;
+  }
+}
+@media (width <=780px) {
+  .ingridients-measures-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  .instructions-wrapper {
+    width: 100%;
+  }
+  .meal-hero-wrapper {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 2rem;
+    justify-content: center;
+    padding: 3rem 0;
+  }
+  .meal-hero-text {
+    padding-left: 3rem;
+    margin-top: 4rem;
+  }
+  .meal-detailed-title {
+    font-size: clamp(1.5rem, 10vw, 2.5rem);
+  }
+  .detailed-meal-image-wrapper {
+    width: 100%;
+  }
+  .meal-img {
+    height: auto;
+    border-radius: 2rem;
+    /* max-width: 400px; */
+    width: 100%;
+
+  }
+  .overlay.meal,
+  .dots-wrapper {
+    border-radius: 0;
+    display: none;
+  }
+
+  .like-btn {
+    position: relative;
+    left: 0;
+    right: inherit;
+    bottom: 0;
+    display: flex;
+    align-self: flex-end;
+    padding-right: 3rem;
+    margin-top: 1rem;
+  }
+  .meal-labels {
+    flex-direction: column;
   }
 }

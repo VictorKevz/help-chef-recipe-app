@@ -20,7 +20,7 @@
 .toggle-container:before {
   content: "Switch theme";
   position: absolute;
-  top: 100%;
+  top:100%;
   margin-top: 0.6rem;
   color: white;
   opacity: 0;

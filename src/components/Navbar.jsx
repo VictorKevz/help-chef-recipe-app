@@ -5,6 +5,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import SettingsSuggestIcon from "@mui/icons-material/SettingsSuggest";
 import KeyboardDoubleArrowDownIcon from "@mui/icons-material/KeyboardDoubleArrowDown";
 import KeyboardDoubleArrowUpIcon from "@mui/icons-material/KeyboardDoubleArrowUp";
+import chef from "../assets/images/chef.webp"
 import "../css/navbar.css";
 
 import ToggleSwitch from "./ToggleSwitch";
@@ -26,6 +27,7 @@ function Navbar({ isDark, setDark, favorites }) {
     setMenuOpen(!isMenuOpen)
   
 }
+const isActive = favorites.length > 0 ? true : false;
   return (
     <header className="nav-wrapper">
       <nav className="nav-container">
@@ -43,12 +45,12 @@ function Navbar({ isDark, setDark, favorites }) {
         </div>
 
         <ul className={`links-wrapper ${isMenuOpen && "open"}`}>
-          <li className="nav-item">
+          <li className="nav-item"onClick={()=>setMenuOpen(false)}>
             <NavLink className="nav-link" to="/" activeClassName="active">
               Home
             </NavLink>
           </li>
-          <li className="nav-item">
+          <li className="nav-item"onClick={()=>setMenuOpen(false)}>
             <NavLink
               className="nav-link"
               to="/recipes"
@@ -58,7 +60,7 @@ function Navbar({ isDark, setDark, favorites }) {
             </NavLink>
           </li>
 
-          <li className="nav-item">
+          <li className="nav-item"onClick={()=>setMenuOpen(false)}>
             <NavLink
               className="nav-link"
               to="/contact"
@@ -70,11 +72,11 @@ function Navbar({ isDark, setDark, favorites }) {
         </ul>
         <div className={`favorites-toggle-container ${settings && "open"}`}>
           <ToggleSwitch isDark={isDark} setDark={setDark} />
-          <Link to="/favorites" className="favorites-image-wrapper">
-            {favorites.length > 0 && (
+          <Link to="/profile" onClick={()=>setSettings(false)} className={`favorites-image-wrapper ${isActive && "filled"}`}>
+            {isActive && (
               <span className="favorites-num">{favorites.length}</span>
             )}
-            <FavoriteIcon fontSize="large" className={`fav-icon`} />
+            <img src={chef} alt="Image of chef cartoon" className={`chef-img`} />
           </Link>
         </div>
         <button

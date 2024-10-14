@@ -6,8 +6,8 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Recipes from "./pages/Recipes";
 import DetailedMeal from "./pages/DetailedMeal";
-import Favorites from "./pages/Favorites";
 import Contact from "./pages/Contanct";
+import Profile from "./pages/Profile/Profile";
 
 function App() {
   const [isDark, setDark] = useState(() => {
@@ -38,8 +38,8 @@ function App() {
             }
           />
           <Route
-            path="/favorites"
-            element={<Favorites favorites={favorites} setFavorites={setFavorites}/>}
+            path="/profile"
+            element={<Profile favorites={favorites} setFavorites={setFavorites}/>}
           />
           <Route
             path="/contact"
