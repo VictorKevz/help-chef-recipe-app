@@ -6,6 +6,8 @@
   width: 100%;
   position: relative;
   background-color: var(--very-dark-brown);
+  color: var(--light-gray);
+
 
 }
 .inner-container {
@@ -41,7 +43,6 @@ a {
   font-weight: 500;
   text-decoration: none;
   color: inherit;
-  color: var(--light-gray);
 }
 
 a{
@@ -51,7 +52,7 @@ p {
   font-size: 1.8rem;
   font-weight: 300;
   line-height: 1.65;
-  color: var(--light-gray);
+  /* color: var(--light-gray); */
 }
 fieldset {
   border: none;
@@ -62,4 +63,5 @@ input:focus{
 
 .main-bg-dark{
   background-color: var(--light-gray);
+  color: white;
 }

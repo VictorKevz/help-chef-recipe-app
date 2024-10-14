@@ -3,8 +3,8 @@
     max-width: 1440px;
     width: 100%;
     display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    justify-content: flex-end;
+    align-items: flex-end;
   }
   
   /* ..........................SEARCH BAR STYLES............................. */

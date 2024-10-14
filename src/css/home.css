@@ -10,7 +10,8 @@
   background-position: bottom center;
   background-size: cover;
   position: relative;
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
+  padding: 0 2rem;
 }
 .home-text-container {
   display: flex;

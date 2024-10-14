@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Search from "../components/Search";
-import DropDown from "../components/DropDown";
+// import DropDown from "../components/DropDown";
 import "../css/recipes.css";
 import Categories from "../components/Categories";
 import Meals from "../components/Meals";
@@ -50,7 +50,7 @@ function Recipes() {
     <section className="recipe-wrapper">
       <div className="filters-wrapper">
         <Search query={query} setQuery={setQuery} />
-        <DropDown sortOption={sortOption} setSortOption={setSortOption} />
+        {/* <DropDown sortOption={sortOption} setSortOption={setSortOption} /> */}
       </div>
 
       <section className="categories-meals-wrapper">
@@ -66,6 +66,7 @@ function Recipes() {
           meals={meals}
           setMeals={setMeals}
           query={query}
+          
         />
       </section>
     </section>

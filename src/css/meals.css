@@ -11,15 +11,10 @@
 .meal-card {
   background: var(--dark-bg);
   padding: 4rem 2rem 4rem 2rem;
-  border-radius: 8rem 1.2rem 8rem 1.2rem;
-  border-radius: 2.8rem;
+  border-radius: 1.2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* border: 1px solid #0097b2; */
-  place-items: right;
-  /* box-shadow: 0 3rem 1rem -1rem #0097b20d; */
-  /* max-width: 250px; */
+  align-items: center;  
   width: 100%;
   background: linear-gradient(to bottom, #1E1E1E,#363636);
 
@@ -52,7 +47,7 @@
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   width: 100%;
   border: 1px solid #0097b2;
   height: 4.5rem;
@@ -68,6 +63,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
+
 }
 .toggle-meals-btn {
   margin-top: 3rem;
@@ -79,4 +76,10 @@
   border-radius: 2.8rem;
   background-color: #09c1e1;
   align-self: flex-end;
+}
+
+.meal-card:hover{
+  transform: scale(1.05);
+  cursor: pointer;
+  transition: .3s ease-in-out;
 }

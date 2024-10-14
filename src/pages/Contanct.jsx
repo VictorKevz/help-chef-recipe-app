@@ -2,7 +2,7 @@ import { useState } from "react";
 import "../css/contact.css";
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import SendIcon from '@mui/icons-material/Send';
-import FormToast from "../components/FormToast";
+import Modal from "../components/Modal";
 
 
 function Contact() {
@@ -29,6 +29,7 @@ const clearForm = () => {
         email: "",
         message: "",
       })
+      setShowToast(false)
 }
 const [showToast,setShowToast] = useState(false)
   const handleChange = (e) => {
@@ -55,7 +56,7 @@ const [showToast,setShowToast] = useState(false)
       newFormValid.message = false;
     }
     setFormValid(newFormValid);
-    const isValid = Object.values(formValid).every(Boolean);
+    const isValid = Object.values(newFormValid).every(Boolean);
     return isValid;
   };
   const handleSubmit = (e) => {
@@ -170,7 +171,7 @@ const [showToast,setShowToast] = useState(false)
         </fieldset>
        
       </form>
-      {showToast && <FormToast showToast={showToast} setShowToast={setShowToast}/>}
+      {showToast && <Modal showToast={showToast} setShowToast={setShowToast}/>}
     </div>
   );
 }

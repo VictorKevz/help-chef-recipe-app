@@ -30,7 +30,7 @@ function App() {
         <Navbar isDark={isDark} setDark={setDark} favorites={favorites} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recipes" element={<Recipes />} />
+          <Route path="/recipes" element={<Recipes  />} />
           <Route
             path="/meal/:mealName"
             element={

@@ -1,11 +1,10 @@
-.favorites-container   {
-    width: 100%;
-    flex-direction: column;
-    display: flex;
-    align-items: center;
-    justify-content:center ;
-    padding: 3rem;
-
+.favorites-container {
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
 }
 
 .favorites-wrapper {
@@ -19,7 +18,7 @@
   /* background-color: #0097b2; */
 }
 .favorites-header {
-    max-width: 400px;
+  max-width: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -32,7 +31,7 @@
   gap: 2rem;
 }
 .favorites-parag {
-    width: 90%;
+  width: 90%;
 }
 .profile-img {
   border-radius: 50%;
@@ -58,26 +57,25 @@
 }
 /* .....FAVORITE ITEMS STYLES................... */
 .favorite-items-wrapper {
-  width: fit-content;
-  display: flex;
+  max-width: 1040px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
+  justify-items: end;
+
 }
 
 .favorite-item-card {
-  background: var(--dark-bg);
+  width: 100%;
+  background: linear-gradient(to bottom, #1e1e1e, #363636);
   padding: 4rem 3rem 4rem 3rem;
-  border-radius: 8rem 1.2rem 8rem 1.2rem;
+  border-radius: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: 1px solid #0097b2;
-  place-items: right;
-  box-shadow: 0 3rem 2rem -1rem #0097b20d;
 
-  
+
 }
 .favorite-item-title {
   font-size: 1.6rem;
@@ -99,7 +97,7 @@
 }
 .favorite-image-wrapper {
   background: var(--color-bg);
-  padding: 2rem;
+  padding: 1.2rem;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -107,7 +105,7 @@
   margin-top: 2.5rem;
 }
 .favorite-img {
-  width: 180px;
+  width: 120px;
   height: auto;
   border-radius: 1.2rem;
   box-shadow: 0 3rem 2rem -1rem var(--very-dark-brown);
@@ -126,59 +124,80 @@
 .delete-btn {
   color: white;
 }
-.empty-favorties{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-align-self: center;
-gap: 1.5rem;
-text-align: center;
+.empty-favorties {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  width: 100%;
 }
-.empty-title{
-    font-size: clamp(2rem,8vw,4rem);
-}
-.empty-img{
-    max-width: 400px;
-    width: 100%;
-    height: auto;
-}
+.empty-card{
+  gap: 1.5rem;
 
-.custom-meals{
-    margin-top: 6rem;
-    max-width: 1440px;
-    width: 100%;
-    min-height: 250px;
-    border: 1px solid #0097b2;
-    display: flex;
-    justify-content: space-between;
-    align-items:center ;
-    padding: 4rem 5rem;
-    border-radius: 15rem 1.2rem 15rem 1.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--dark-bg);
+  padding: 4rem;
+  border-radius: 1.2rem;
 }
-.custom-text{
-    max-width: 700px;
-    display: flex;
-    flex-direction: column;
+.empty-title {
+  font-size: clamp(2rem, 8vw, 4rem);
 }
-.custom-parag{
-    margin-top: 1.5rem;
+.empty-img {
+  max-width: 200px;
+  width: 100%;
+  height: auto;
 }
-.custom-title{
-    font-size: clamp(3rem,8vw,5rem);
+.empty-cta{
+  height: 4.5rem;
+  background: var(--color-bg);
+  border-radius: 2.8rem;
+  display:flex ;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  padding: 0 2.5rem;
+  margin-top: 4rem;
 }
-.custom-subtitle{
-    font-size: clamp(2rem,8vw,3rem);
+.custom-meals {
+  margin-top: 6rem;
+  max-width: 1440px;
+  width: 100%;
+  min-height: 250px;
+  /* border: 1px solid #0097b2; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 5rem;
+  border-radius: 1.2rem;
+  background: var(--dark-bg);
+}
+.custom-text {
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+.custom-parag {
+  margin-top: 1.5rem;
+}
+.custom-title {
+  font-size: clamp(3rem, 8vw, 5rem);
+}
+.custom-subtitle {
+  font-size: clamp(2rem, 8vw, 3rem);
   text-transform: uppercase;
-  letter-spacing: .04rem;
+  letter-spacing: 0.04rem;
 }
-.custom-image-wrapper{
-    background: var(--dark-bg);
-    border-radius: 50%;
-    border: 1px dashed var(--very-light-green);
+.custom-image-wrapper {
+  background: var(--dark-bg);
+  border-radius: 50%;
+  border: 1px dashed var(--very-light-green);
 }
-.custom-img{
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    padding: 2rem;
+.custom-img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+  padding: 2rem;
 }
