@@ -1,9 +1,11 @@
 import React from "react";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import LaunchIcon from "@mui/icons-material/Launch";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { NavLink } from "react-router-dom";
 import empty from "../../assets/images/empty.webp";
+import { tabsVariants } from "../../variants";
+import { motion } from "framer-motion";
+
 function Favorites({ favorites, setFavorites }) {
   const deleteMeal = (currentID) => {
     setFavorites((prevFavs) => {
@@ -11,7 +13,12 @@ function Favorites({ favorites, setFavorites }) {
     });
   };
   return (
-    <section className="favorite-items-wrapper">
+    <motion.section
+      className="favorite-items-wrapper"
+      variants={tabsVariants}
+      initial="hidden"
+      animate="visible"
+    >
       {favorites.map((item) => (
         <div key={item?.idMeal} className="favorite-item-card">
           <article className="favorite-image-details">
@@ -59,7 +66,7 @@ function Favorites({ favorites, setFavorites }) {
           </div>
         </article>
       )}
-    </section>
+    </motion.section>
   );
 }
 

@@ -7,7 +7,7 @@
   background-color: var(--dark-gray);
   background: linear-gradient(to top, #1e1e1e, #363636);
 
-  padding: 3rem 4rem;
+  padding: 5rem 2rem;
   border-radius: 1.2rem;
 }
 .category-item {
@@ -16,7 +16,7 @@
   align-items: center;
   flex-direction: row-reverse;
   gap: .5rem;
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 800;
   text-transform: uppercase;
   border: 2px solid var(--light-gray);
@@ -24,8 +24,9 @@
   color: white;
   transition: 0.3s ease-in-out;
   cursor: pointer;
-  padding-left: .5rem;
+  padding-left: 1rem;
   margin-left: auto;
+  letter-spacing: .08rem;
 }
 .category-img {
   width: 4rem;

@@ -1,16 +1,25 @@
 import React from "react";
 import "../css/categories.css";
+import { categoriesVariants, mealCardVariants } from "../variants";
+import { motion } from "framer-motion";
 
-function Categories({ categories, onUpdate,selectedCategory }) {
+function Categories({ categories, onUpdate, selectedCategory }) {
   return (
-    <article className="categories-wrapper">
+    <motion.article 
+    className="categories-wrapper"
+    variants={categoriesVariants}
+              initial="hidden"
+              animate="visible"
+              custom={0.5}
+    >
       {categories &&
-        categories.map((category) => {
+        categories.map((category, i) => {
           const isActive = category.strCategory === selectedCategory;
           return (
-            <label
+            <motion.label
               key={category.idCategory}
               htmlFor={category.idCategory}
+              
               className={`category-item ${isActive && "active-category"}`}
             >
               <img
@@ -28,10 +37,10 @@ function Categories({ categories, onUpdate,selectedCategory }) {
                 onChange={onUpdate}
                 className="category-input"
               />
-            </label>
+            </motion.label>
           );
         })}
-    </article>
+    </motion.article>
   );
 }
 

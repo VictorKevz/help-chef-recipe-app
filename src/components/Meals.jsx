@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import LaunchIcon from "@mui/icons-material/Launch";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-
-
+import { mealCardVariants } from "../variants";
+import { motion } from "framer-motion";
 import "../css/meals.css";
-function Meals({
-  selectedCategory,
-  meals,
-  setMeals,
-  query,
-}) {
+function Meals({ selectedCategory, meals, setMeals, query }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [showAllMeals, setShowAllMeals] = useState(false);
@@ -40,16 +33,20 @@ function Meals({
   );
   const dataToShow = showAllMeals ? filteredData : filteredData.slice(0, 9);
 
-  
   return (
     <article className="meals-wrapper">
       {loading && <p>Fetching data...</p>}
       {error && <p>An error: {error}</p>}
       {meals &&
-        dataToShow.map((meal) => {
-
+        dataToShow.map((meal,i) => {
           return (
-            <div key={meal?.idMeal} className="meal-card">
+            <motion.div 
+            key={meal?.idMeal} 
+            variants={mealCardVariants}
+            initial="hidden"
+            animate="visible"
+            custom={i}
+            className="meal-card">
               <div className="meals-image-wrapper">
                 <img
                   src={meal.strMealThumb}
@@ -61,12 +58,11 @@ function Meals({
               <h3 className="meal-title">{meal?.strMeal}</h3>
 
               <div className="meal-like-link-wrapper">
-               
                 <NavLink className="meal-link" to={`/meal/${meal?.strMeal}`}>
                   Learn More <LaunchIcon fontSize="large" />
                 </NavLink>
               </div>
-            </div>
+            </motion.div>
           );
         })}
       {dataToShow?.length > 7 && (

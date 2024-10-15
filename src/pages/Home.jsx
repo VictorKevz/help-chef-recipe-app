@@ -1,12 +1,19 @@
 import React from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import { NavLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import "../css/home.css";
+import { tabsVariants } from "../variants";
 
 function Home() {
   return (
-    <section className="home-wrapper">
+    <motion.section 
+    className="home-wrapper"
+    variants={tabsVariants}
+      initial="hidden"
+      animate="visible"
+    >
       <div className="home-text-container">
         <h1 className="home-title">Now You Can Cook!</h1>
         <p className="home-parag">
@@ -21,7 +28,7 @@ function Home() {
         <ArrowForwardIcon fontSize="large" className="home-icon" />
       </NavLink>
       <div className="overlay"></div>
-    </section>
+    </motion.section>
   );
 }
 
