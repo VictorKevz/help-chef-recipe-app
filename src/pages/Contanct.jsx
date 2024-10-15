@@ -3,9 +3,11 @@ import "../css/contact.css";
 import BackspaceIcon from '@mui/icons-material/Backspace';
 import SendIcon from '@mui/icons-material/Send';
 import Modal from "../components/Modal";
+import { motion } from "framer-motion";
+import { tabsVariants } from "../variants";
 
 
-function Contact() {
+function Contact({isDark}) {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -103,7 +105,13 @@ const [showToast,setShowToast] = useState(false)
     }
   };
   return (
-    <div className="contact-container">
+    <motion.div 
+    className="contact-container"
+    variants={tabsVariants}
+    initial="hidden"
+    animate="visible"
+    key={isDark}
+    >
       <header className="form-header">
         <h1 className="contanct-title">Get in Touch!</h1>
         <p className="contanct-parag">
@@ -113,7 +121,7 @@ const [showToast,setShowToast] = useState(false)
         </p>
       </header>
       <form
-        className="form-container"
+        className={`form-container ${!isDark && "meal-cards-light"}`}
         onSubmit={handleSubmit}
         autoComplete="off"
       >
@@ -125,8 +133,8 @@ const [showToast,setShowToast] = useState(false)
             onChange={handleChange}
             name="fullName"
             id="fullName"
-            placeholder="Full Name"
-            className={`form-input ${!formValid.fullName && "error-border"}`}
+            placeholder="Victor Kevz"
+            className={`form-input ${!formValid.fullName && "error-border"} ${!isDark && "fav-cards-light"}`}
           />
           {!formValid.fullName && (
             <span className="error-message">Can't be blank</span>
@@ -141,7 +149,7 @@ const [showToast,setShowToast] = useState(false)
             name="email"
             id="email"
             placeholder="abc@123.com"
-            className={`form-input ${!formValid.email && "error-border"}`}
+            className={`form-input ${!formValid.email && "error-border"} ${!isDark && "fav-cards-light"}`}
           />
           {!formValid.email && (
             <span className="error-message">Can't be blank</span>
@@ -154,7 +162,7 @@ const [showToast,setShowToast] = useState(false)
             onChange={handleChange}
             name="message"
             id="message"
-            className={`text-area ${!formValid.message && "error-border"}`}
+            className={`text-area ${!formValid.message && "error-border"} ${!isDark && "fav-cards-light"}`}
             rows={6}
           />
           {!formValid.message && (
@@ -172,7 +180,7 @@ const [showToast,setShowToast] = useState(false)
        
       </form>
       {showToast && <Modal showToast={showToast} setShowToast={setShowToast}/>}
-    </div>
+    </motion.div>
   );
 }
 

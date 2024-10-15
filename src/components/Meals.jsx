@@ -4,11 +4,18 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import { mealCardVariants } from "../variants";
 import { motion } from "framer-motion";
 import "../css/meals.css";
-function Meals({ selectedCategory, meals, setMeals, query,currentPageNumber,setCurrentPageNumber }) {
+
+function Meals({
+  selectedCategory,
+  meals,
+  setMeals,
+  query,
+  currentPageNumber,
+  setCurrentPageNumber,
+  isDark,
+}) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-
-  
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -51,7 +58,7 @@ function Meals({ selectedCategory, meals, setMeals, query,currentPageNumber,setC
               initial="hidden"
               animate="visible"
               custom={i}
-              className="meal-card"
+              className={`meal-card ${!isDark && "meal-cards-light"}`}
             >
               <div className="meals-image-wrapper">
                 <img
@@ -76,8 +83,9 @@ function Meals({ selectedCategory, meals, setMeals, query,currentPageNumber,setC
           const isActive = currentPageNumber === i + 1;
           return (
             <button
+            key={i}
               type="button"
-              className={`page-num-btn ${isActive && "current"}`}
+              className={`page-num-btn ${isActive && "current"} ${!isDark && "num-light"}`}
               onClick={() => setCurrentPageNumber(i + 1)}
             >
               {i + 1}

@@ -28,6 +28,7 @@
   border: 1px solid var(--dark-gray);
   background-size: cover;
   position: relative;
+  color: var(--very-light-green1);
 }
 .detailed-meal-image-wrapper {
   position: relative;
@@ -67,7 +68,7 @@
     position: absolute;
     bottom: 3rem;
     right: 3rem;
-    color: #7ed957;
+    color: #84bb6d;
     scale: 1.5;
 }
 .selected{
@@ -77,6 +78,7 @@
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
+  color: white;
 }
 .caption-style {
   color: var(--very-light-green);
@@ -92,9 +94,9 @@
   gap: 3rem;
 }
 .label {
-  max-width: 250px;
-  width: 100%;
-  color: var(--light-gray);
+  min-width: 200px;
+  /* width: 100%; */
+  color: white;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -176,7 +178,7 @@
     line-height: 1.6;
 }
 .instruction-btn{
-    border: 1px solid var(--light-gray);
+    border: 1px solid white;
     width: fit-content;
     align-self: center;
     height: 4.5rem;
@@ -236,4 +238,9 @@ border-bottom: 1px solid #add89a1a;
     height: 3rem;
     border: 1px solid #0097b2;
     border-radius: 50%;
+}
+
+/* DETAILED PAGE LIGHT MODE */
+.items-light{
+  border-bottom: 1px solid #f1f4f02f;
 }

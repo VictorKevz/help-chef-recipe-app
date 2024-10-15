@@ -5,7 +5,7 @@ import "../css/recipes.css";
 import Categories from "../components/Categories";
 import Meals from "../components/Meals";
 
-function Recipes() {
+function Recipes({ isDark }) {
   const [query, setQuery] = useState("");
   const [sortOption, setSortOption] = useState("");
   const [categories, setCategories] = useState([]);
@@ -23,7 +23,7 @@ function Recipes() {
   const updateCategory = (e) => {
     const { checked, value } = e.target;
     setSelectedCategory(checked ? value : selectedCategory);
-    setCurrentPageNumber(1)
+    setCurrentPageNumber(1);
   };
   useEffect(() => {
     const fetchCategories = async () => {
@@ -46,12 +46,12 @@ function Recipes() {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("category",JSON.stringify(selectedCategory))
-  },[selectedCategory])
+    localStorage.setItem("category", JSON.stringify(selectedCategory));
+  }, [selectedCategory]);
   return (
-    <section className="recipe-wrapper">
+    <section className={`recipe-wrapper ${!isDark && "main-bg-light"}`}>
       <div className="filters-wrapper">
-        <Search query={query} setQuery={setQuery} />
+        <Search query={query} setQuery={setQuery} isDark={isDark} />
         {/* <DropDown sortOption={sortOption} setSortOption={setSortOption} /> */}
       </div>
 
@@ -62,6 +62,7 @@ function Recipes() {
           categories={categories}
           onUpdate={updateCategory}
           selectedCategory={selectedCategory}
+          isDark={isDark}
         />
         <Meals
           selectedCategory={selectedCategory}
@@ -70,7 +71,7 @@ function Recipes() {
           query={query}
           currentPageNumber={currentPageNumber}
           setCurrentPageNumber={setCurrentPageNumber}
-          
+          isDark={isDark}
         />
       </section>
     </section>

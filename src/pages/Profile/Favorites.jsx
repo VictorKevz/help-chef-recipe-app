@@ -6,7 +6,7 @@ import empty from "../../assets/images/empty.webp";
 import { mealCardVariants } from "../../variants";
 import { motion } from "framer-motion";
 
-function Favorites({ favorites, setFavorites }) {
+function Favorites({ favorites, setFavorites,isDark }) {
   const deleteMeal = (currentID) => {
     setFavorites((prevFavs) => {
       return prevFavs.filter((item) => item.idMeal !== currentID);
@@ -17,7 +17,7 @@ function Favorites({ favorites, setFavorites }) {
       {favorites.map((item) => (
         <motion.div
           key={item?.idMeal}
-          className="favorite-item-card"
+          className={`favorite-item-card ${!isDark && "fav-cards-light"}`}
           variants={mealCardVariants}
           initial="hidden"
           animate="visible"
@@ -33,8 +33,8 @@ function Favorites({ favorites, setFavorites }) {
             <div className="text">
               <h2 className="favorite-item-title">{item?.strMeal}</h2>
               <ul className="favorite-labels">
-                <li className="favorite-item">{item?.strCategory}</li>
-                <li className="favorite-item">{item?.strArea}</li>
+                <li className={`favorite-item ${!isDark && "meal-cards-light"}`}>{item?.strCategory}</li>
+                <li className={`favorite-item ${!isDark && "meal-cards-light"}`}>{item?.strArea}</li>
               </ul>
             </div>
           </article>

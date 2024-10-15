@@ -3,10 +3,10 @@ import "../css/categories.css";
 import { categoriesVariants, mealCardVariants } from "../variants";
 import { motion } from "framer-motion";
 
-function Categories({ categories, onUpdate, selectedCategory }) {
+function Categories({ categories, onUpdate, selectedCategory,isDark }) {
   return (
     <motion.article 
-    className="categories-wrapper"
+    className={`categories-wrapper ${!isDark && "meal-cards-light"}`}
     variants={categoriesVariants}
               initial="hidden"
               animate="visible"
@@ -20,12 +20,12 @@ function Categories({ categories, onUpdate, selectedCategory }) {
               key={category.idCategory}
               htmlFor={category.idCategory}
               
-              className={`category-item ${isActive && "active-category"}`}
+              className={`category-item ${isActive && "active-category"} `}
             >
               <img
                 src={category.strCategoryThumb}
                 alt={category.strCategoryDescription}
-                className="category-img"
+                className={`category-img ${!isDark && "item-light"}`}
               />
               {category.strCategory}
               <input

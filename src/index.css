@@ -8,6 +8,13 @@
   --color-bg: linear-gradient(to right, #0097b2bb, #7ed957c8);
   --dark-bg: linear-gradient(to right, #363636, #282727, #363636);
   --red: rgb(234, 92, 92);
+
+  /* LightMode styles...... */
+  --light-green-bg: #c9dac4fd;
+  --light-blue-bg: #a2cfd7;
+  --light-grad:linear-gradient(to top, #c9d5c5fd, #abcacf);
+
+
 }
 * {
   box-sizing: border-box;
@@ -21,6 +28,21 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
+}
+/* COMMON LIGHT MODE STYLES........ */
+
+.main-bg-light{
+  color: white;
+  background: var(--light-grad);
+}
+.meal-cards-light{
+  background:linear-gradient(to bottom, #c9d5c5fd, #abcacf) ;
+  border-color: inherit;
+}
+.fav-cards-light{
+  border: none;
+  background: var(--light-blue-bg);
+  border: 1px solid var(--very-light-green1);
 }
 .dot {
   background: linear-gradient(to right, #7ed957, #0097b2);
@@ -62,6 +84,13 @@ body {
   }
   .toggle-container {
     width: 100%;
+  }
+  /* Light Mode */
+  .favorites-toggle-container.border-light{
+    background: linear-gradient(to top, #c9d5c5fd, #abcacf);
+    border: 1px solid var(--very-light-green1);
+
+ 
   }
 }
 @media (width <=930px) {
@@ -109,7 +138,7 @@ body {
     grid-template-columns: 1fr 1fr;
   }
   .search-btn {
-    right: 0;
+    right: -1rem;
   }
   .page-num-wrapper{
     grid-column: span 2;

@@ -6,7 +6,7 @@ import Favorites from "./Favorites";
 import Personal from "./Personal";
 import Settings from "./Settings";
 
-function Profile({ favorites, setFavorites }) {
+function Profile({ favorites, setFavorites,isDark }) {
   const [selectedTab, setSelectedTab] = useState("favorites");
   const inputsData = [
     { id: 0, label: "Saved", value: "favorites" },
@@ -21,8 +21,8 @@ function Profile({ favorites, setFavorites }) {
   return (
     <main className="profile-container">
       <section className="profile-wrapper">
-        <aside className="profile-aside-wrapper">
-          <div className="profile-details">
+        <aside className={`profile-aside-wrapper ${!isDark && "meal-cards-light"}`}>
+          <div className={`profile-details ${!isDark && "meal-cards-light"}`}>
             <div className="dots-wrapper fav">
               <span className="dot"></span>
               <span className="dot"></span>
@@ -47,7 +47,7 @@ function Profile({ favorites, setFavorites }) {
                   <label
                     key={item.id}
                     htmlFor={item.id}
-                    className={`navigation-item ${isActive && "selected"}`}
+                    className={`navigation-item ${isActive && "selected"} ${!isDark && "fav-cards-light"}`}
                   >
                     {item.label}
                     <input
@@ -64,7 +64,7 @@ function Profile({ favorites, setFavorites }) {
             </div>
           </div>
         </aside>
-        {selectedTab == "favorites" && <Favorites favorites={favorites} setFavorites={setFavorites} />}
+        {selectedTab == "favorites" && <Favorites favorites={favorites} setFavorites={setFavorites} isDark={isDark} />}
         {selectedTab == "personal" && <Personal />}
         {selectedTab == "settings" && <Settings />}
       </section>

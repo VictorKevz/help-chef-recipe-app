@@ -29,6 +29,7 @@
   background: linear-gradient(to bottom, #363636, #1e1e1e, #363636);
 
 }
+
 .profile-details {
   padding: 6rem 2rem;
   border-radius: 1rem 1rem 2rem 2rem;
@@ -75,7 +76,7 @@
   max-width: 200px;
   width: 100%;
   border-radius: 1.2rem;
-  color: var(--light-gray);
+  color: white;
   padding: 0 2rem;
   cursor: pointer;
   transition: .25s ease-in-out;
@@ -84,7 +85,7 @@ input[type="radio"]{
 appearance: none;
 }
 .selected{
-  background: var(--color-bg);
+  background: var(--color-bg)!important;
   transition: .25s ease-in-out;
 color: white;
 }
@@ -122,6 +123,7 @@ color: white;
   position: relative;
 
 }
+
 .favorite-image-details{
   display: flex;
   align-items: center;
@@ -151,7 +153,7 @@ color: white;
   border: 1px solid var(--dark-gray);
   padding: 0.5rem 1rem;
   border-radius: 0.64rem;
-  color: var(--light-gray);
+  color: white;
 }
 
 .favorite-link-delete-wrapper {

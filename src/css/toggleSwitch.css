@@ -30,3 +30,9 @@
   transition: 0.3s ease-in;
   opacity: 1;
 }
+/* LIGHT MODE.......... */
+.toggle-container.border-light{
+  border: 1px solid var(--very-light-green1);
+  background: var(--light-blue-bg);
+  z-index: 1;
+}

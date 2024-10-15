@@ -60,8 +60,20 @@ fieldset {
 input:focus{
   outline: none;
 }
+:root {
+  --very-light-green: #6ba851;
+  --light-blue: #0097b2;
+  --light-gray: #d5d3d6;
+  --dark-gray: #363636;
+  --very-dark-brown: #1e1e1e;
+  --color-bg: linear-gradient(to right, #0097b2bb, #7ed957c8);
+  --dark-bg: linear-gradient(to right, #363636, #282727, #363636);
+  --red: rgb(234, 92, 92);
 
-.main-bg-dark{
-  background-color: var(--light-gray);
-  color: white;
+  /* LightMode styles...... */
+  --light-green-bg: #c9dac4fd;
+  --light-blue-bg: #a2cfd7;
+  --light-grad:linear-gradient(to top, #cfdaccfd, #abcacf);
+--very-light-green1:#e2f4dbfd;
+
 }

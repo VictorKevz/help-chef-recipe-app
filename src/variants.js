@@ -54,3 +54,20 @@ export const mealCardVariants = {
       }
     },
   };
+  export const navVariants = {
+    hidden: { 
+      opacity: 0,
+      y: "-100%",
+    },
+    visible:{
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping:15,
+        stiffness:300,
+        duration: 0.7,     
+        delay: 0.3,    
+      }
+    },
+  };

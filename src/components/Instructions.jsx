@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
-function Instructions({ meal }) {
+
+function Instructions({ meal,isDark }) {
   const [indexes, setIndexes] = useState({ 0: true });
   const [showAllSteps, setAllSteps] = useState(false);
 
@@ -19,13 +20,13 @@ function Instructions({ meal }) {
     .filter((step) => step);
   const dataToshow = showAllSteps ? steps : steps.slice(0, 4);
   return (
-    <div className="instructions-wrapper">
+    <div className={`instructions-wrapper ${!isDark && "meal-cards-light"}`}>
       <h2 className="steps-title">Instructions</h2>
       <div className="steps-wrapper">
         {dataToshow.map((step, index) => {
           const isActive = indexes[index];
           return (
-            <ul key={index} className="step-items">
+            <ul key={index} className={`step-items ${!isDark && "items-light"}`}>
               <li className="step-item" onClick={() => handleClick(index)}>
                 <h3 className="step-heading">Step {index + 1}</h3>
                 <button className="step-btn">

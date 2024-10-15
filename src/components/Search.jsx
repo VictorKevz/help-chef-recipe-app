@@ -2,12 +2,12 @@ import { SearchOutlined } from "@mui/icons-material";
 import React from "react";
 import "../css/filters.css";
 
-function Search({ setQuery, query }) {
+function Search({ setQuery, query,isDark }) {
   const handleChange = (e) => {
     setQuery(e.target.value.toLowerCase());
   };
   return (
-    <fieldset className="search-wrapper">
+    <fieldset className={`search-wrapper ${!isDark && "main-bg-light"}`}>
       <label htmlFor="query"></label>
       <input
         type="search"

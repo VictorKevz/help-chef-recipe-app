@@ -10,7 +10,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import "../css/detailedMeal.css";
 import Instructions from "../components/Instructions";
 
-function DetailedMeal({ setFavorites, favorites }) {
+function DetailedMeal({ setFavorites, favorites,isDark }) {
   const [meal, setMeal] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -66,7 +66,7 @@ function DetailedMeal({ setFavorites, favorites }) {
         {loading && <p>Fetching data...</p>}
         {error && <p>An error: {error}</p>}
 
-        <div className="meal-hero-wrapper">
+        <div className={`meal-hero-wrapper ${!isDark && "meal-cards-light"}`}>
           <div className="detailed-meal-image-wrapper">
             <img
               src={meal.strMealThumb}
@@ -102,29 +102,29 @@ function DetailedMeal({ setFavorites, favorites }) {
           </button>
         </div>
         <ul className="meal-labels">
-          <li className="label">
+          <li className={`label ${!isDark && "meal-cards-light"}`}>
             <TravelExploreIcon fontSize="large" className="tag-icon" />
             {meal?.strArea}
           </li>
-          <li className="label">
+          <li className={`label ${!isDark && "meal-cards-light"}`}>
             <CategoryIcon fontSize="large" className="tag-icon" />
             {meal?.strCategory}
           </li>
           {meal?.strTags && (
-            <li className="label">
+            <li className={`label ${!isDark && "meal-cards-light"}`}>
             <StyleIcon fontSize="large" className="tag-icon" />
             {meal?.strTags}
           </li>
           )}
         </ul>
         <div className="instructions-ingridients-measures-wrapper">
-          <Instructions meal={meal} />
+          <Instructions meal={meal} isDark={isDark} />
           <div className="ingridients-measures-wrapper">
-            <div className="ingridients-wrapper">
+            <div className={`ingridients-wrapper ${!isDark && "meal-cards-light"}`}>
               <h2 className="ingridient-title">Ingridients</h2>
-              <ul className="ingridient-items">
+              <ul className={`ingridient-items`}>
                 {ingredients.map((item, i) => (
-                  <li key={i} className="ingridient-item">
+                  <li key={i} className={`ingridient-item ${!isDark && "items-light"}`}>
                     {item}
                   </li>
                 ))}

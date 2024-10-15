@@ -25,25 +25,25 @@ function App() {
     localStorage.setItem("theme", JSON.stringify(isDark));
   }, [favorites,isDark]);
   return (
-    <main className={`outer-container ${!isDark && "main-bg-dark"}`}>
+    <main className={`outer-container ${!isDark && "main-bg-light"}`}>
       <div className="inner-container">
         <Navbar isDark={isDark} setDark={setDark} favorites={favorites} />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/recipes" element={<Recipes  />} />
+          <Route path="/recipes" element={<Recipes isDark={isDark} />} />
           <Route
             path="/meal/:mealName"
             element={
-              <DetailedMeal favorites={favorites} setFavorites={setFavorites} />
+              <DetailedMeal favorites={favorites} setFavorites={setFavorites} isDark={isDark} />
             }
           />
           <Route
             path="/profile"
-            element={<Profile favorites={favorites} setFavorites={setFavorites}/>}
+            element={<Profile favorites={favorites} setFavorites={setFavorites} isDark={isDark}/>}
           />
           <Route
             path="/contact"
-            element={<Contact />}
+            element={<Contact isDark={isDark}/>}
           />
         </Routes>
       </div>

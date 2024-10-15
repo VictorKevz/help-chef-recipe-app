@@ -11,7 +11,7 @@ function ToggleSwitch({ isDark, setDark }) {
     setDark(checked);
   };
   return (
-    <div className="toggle-container">
+    <div className={`toggle-container ${!isDark && "border-light"}`}>
       <LightModeIcon
         fontSize="large"
         className={`toggle-icon ${!isDark && "header-icons-light"}`}
