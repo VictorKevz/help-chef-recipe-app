@@ -111,6 +111,9 @@ body {
   .search-btn {
     right: 0;
   }
+  .page-num-wrapper{
+    grid-column: span 2;
+  }
 }
 @media (width <=1160px) {
   .categories-wrapper {
@@ -121,9 +124,13 @@ body {
   .meals-wrapper {
     grid-template-columns: 1fr;
   }
+
   .meal-card {
     max-width: 300px;
     width: 100%;
+  }
+  .page-num-wrapper{
+    grid-column: span 1;
   }
   .categories-meals-wrapper {
     width: 100%;
@@ -147,6 +154,9 @@ body {
     padding: 4rem 1.5rem;
     width: 100%;
   }
+  .page-num-wrapper{
+    grid-column: span 2;
+  }
   .search-wrapper {
     max-width: 100%;
   }
@@ -159,6 +169,10 @@ body {
   .category-item {
     width: 100%;
     margin-left: 0;
+  }
+  .page-num-wrapper,.meal-card{
+    grid-column: span 1;
+    margin: 0 auto;
   }
   
 }

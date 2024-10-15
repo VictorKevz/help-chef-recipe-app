@@ -4,10 +4,11 @@ import LaunchIcon from "@mui/icons-material/Launch";
 import { mealCardVariants } from "../variants";
 import { motion } from "framer-motion";
 import "../css/meals.css";
-function Meals({ selectedCategory, meals, setMeals, query }) {
+function Meals({ selectedCategory, meals, setMeals, query,currentPageNumber,setCurrentPageNumber }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [showAllMeals, setShowAllMeals] = useState(false);
+
+  
 
   useEffect(() => {
     const fetchMeals = async () => {
@@ -31,22 +32,27 @@ function Meals({ selectedCategory, meals, setMeals, query }) {
   const filteredData = meals.filter((meal) =>
     meal.strMeal.toLowerCase().includes(query)
   );
-  const dataToShow = showAllMeals ? filteredData : filteredData.slice(0, 9);
-
+  //Pagination Logic
+  const pageItems = 6; //Fixed Number of items per page
+  const indexOfLastMeal = currentPageNumber * pageItems; // for that specific current page
+  const indexOfFirstMeal = indexOfLastMeal - pageItems; // first meal for the current page
+  const currentMeals = filteredData.slice(indexOfFirstMeal, indexOfLastMeal); //array with items for the current page
+  const totalPages = Math.ceil(filteredData.length / pageItems); //Total num of pages as per array size
   return (
     <article className="meals-wrapper">
       {loading && <p>Fetching data...</p>}
       {error && <p>An error: {error}</p>}
-      {meals &&
-        dataToShow.map((meal,i) => {
+      {currentMeals &&
+        currentMeals.map((meal, i) => {
           return (
-            <motion.div 
-            key={meal?.idMeal} 
-            variants={mealCardVariants}
-            initial="hidden"
-            animate="visible"
-            custom={i}
-            className="meal-card">
+            <motion.div
+              key={meal?.idMeal}
+              variants={mealCardVariants}
+              initial="hidden"
+              animate="visible"
+              custom={i}
+              className="meal-card"
+            >
               <div className="meals-image-wrapper">
                 <img
                   src={meal.strMealThumb}
@@ -65,15 +71,20 @@ function Meals({ selectedCategory, meals, setMeals, query }) {
             </motion.div>
           );
         })}
-      {dataToShow?.length > 7 && (
-        <button
-          type="button"
-          className="toggle-meals-btn"
-          onClick={() => setShowAllMeals(!showAllMeals)}
-        >
-          {showAllMeals ? "Collapse Meals" : "Show All Meals"}
-        </button>
-      )}
+      <div className="page-num-wrapper">
+        {Array.from({ length: totalPages }, (_, i) => {
+          const isActive = currentPageNumber === i + 1;
+          return (
+            <button
+              type="button"
+              className={`page-num-btn ${isActive && "current"}`}
+              onClick={() => setCurrentPageNumber(i + 1)}
+            >
+              {i + 1}
+            </button>
+          );
+        })}
+      </div>
     </article>
   );
 }

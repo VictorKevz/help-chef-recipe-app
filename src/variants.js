@@ -2,18 +2,18 @@
 export const mealCardVariants = {
     hidden: { 
       opacity: 0,
-      y: 100,
-      scale:0.8
+      y: 30,
+      
     },
     visible: (i) => ({
       opacity: 1,
       y: 0,
-      scale:1,
+      
       transition: {
         type: "tween",
         ease: "easeInOut",
-        duration: 0.5,     
-        delay: i * 0.3,    
+        duration: 0.8,     
+        delay: i * 0.1,    
       }
     }),
   };
@@ -31,7 +31,7 @@ export const mealCardVariants = {
       transition: {
         type: "tween",
         ease: "easeInOut",
-        duration: 0.5,     
+        duration: 0.8,     
         delay: i * 1,    
       }
     }),
@@ -39,8 +39,8 @@ export const mealCardVariants = {
   export const tabsVariants = {
     hidden: { 
       opacity: 0,
-      y: 100,
-      scale:0.7
+      y: 50,
+      scale:0.8
     },
     visible:{
       opacity: 1,
@@ -49,7 +49,7 @@ export const mealCardVariants = {
       transition: {
         type: "tween",
         ease: "easeInOut",
-        duration: 1,     
+        duration: 0.7,     
         delay: 0.3,    
       }
     },

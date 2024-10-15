@@ -15,6 +15,7 @@ function Recipes() {
     return savedCategory !== null ? JSON.parse(savedCategory) : "Dessert";
   });
   const [meals, setMeals] = useState([]);
+  const [currentPageNumber, setCurrentPageNumber] = useState(1);
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -22,6 +23,7 @@ function Recipes() {
   const updateCategory = (e) => {
     const { checked, value } = e.target;
     setSelectedCategory(checked ? value : selectedCategory);
+    setCurrentPageNumber(1)
   };
   useEffect(() => {
     const fetchCategories = async () => {
@@ -66,6 +68,8 @@ function Recipes() {
           meals={meals}
           setMeals={setMeals}
           query={query}
+          currentPageNumber={currentPageNumber}
+          setCurrentPageNumber={setCurrentPageNumber}
           
         />
       </section>

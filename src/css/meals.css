@@ -66,16 +66,24 @@
   gap: 1rem;
 
 }
-.toggle-meals-btn {
-  margin-top: 3rem;
+.page-num-wrapper{
+  grid-column: span 3;
   display: flex;
-  color: white;
-  width: fit-content;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.page-num-btn{
+  width: 4rem;
   height: 4rem;
-  padding: 0 2rem;
-  border-radius: 2.8rem;
-  background-color: #09c1e1;
-  align-self: flex-end;
+  border-radius: 1.2rem;
+  border: 1px solid var(--dark-gray);
+  color: white;
+}
+.current{
+  background: var(--color-bg);
 }
 
 .meal-card:hover{
