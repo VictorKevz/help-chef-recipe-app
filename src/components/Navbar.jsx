@@ -24,12 +24,21 @@ function Navbar({ isDark, setDark, favorites }) {
     setSettings(false);
     setMenuOpen(!isMenuOpen);
   };
+  
+  // Focus management for accessibility
+  const closeMenuOnEsc = (e) => {
+    if (e.key === 'Escape') {
+      setMenuOpen(false);
+    }
+  };
+
   const links = [
     { id: 0, path: "/", text: "Home" },
     { id: 1, path: "/recipes", text: "Recipes" },
     { id: 2, path: "/contact", text: "Contact" },
   ];
   const isActive = favorites.length > 0 ? true : false;
+
   return (
     <motion.header
       className="nav-wrapper"
@@ -39,7 +48,13 @@ function Navbar({ isDark, setDark, favorites }) {
     >
       <nav className="nav-container">
         <div className="logo-toggle-wrapper">
-          <button className="toggle-btn" onClick={toggleMenu}>
+          {/* Accessible button for toggling menu */}
+          <button 
+            className="toggle-btn" 
+            onClick={toggleMenu}
+            aria-expanded={isMenuOpen}
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+          >
             {isMenuOpen ? (
               <CloseIcon className="menu-icon" fontSize="large" />
             ) : (
@@ -50,15 +65,18 @@ function Navbar({ isDark, setDark, favorites }) {
             HELP<span className="dot"></span>CHEF<span className="dot"></span>
           </h1>
         </div>
+        {/* Accessible Menu */}
         <AnimatePresence mode="wait">
           <motion.ul
-          key={isMenuOpen}
+            key={isMenuOpen}
             variants={navVariants}
             initial="hidden"
             animate="visible"
             className={`links-wrapper ${isMenuOpen && "open"} ${
               !isDark && "border-light"
             }`}
+            aria-hidden={!isMenuOpen}
+            onKeyDown={closeMenuOnEsc}
           >
             {links.map((link) => (
               <li
@@ -70,6 +88,7 @@ function Navbar({ isDark, setDark, favorites }) {
                   className="nav-link"
                   to={link.path}
                   activeClassName={`active`}
+                  tabIndex={0}
                 >
                   {link.text}
                 </NavLink>
@@ -77,6 +96,7 @@ function Navbar({ isDark, setDark, favorites }) {
             ))}
           </motion.ul>
         </AnimatePresence>
+        {/* Toggle and Favorites Section */}
         <motion.div
           variants={navVariants}
           initial="hidden"
@@ -85,27 +105,33 @@ function Navbar({ isDark, setDark, favorites }) {
           className={`favorites-toggle-container ${!isDark && "border-light"} ${
             settings && "open"
           }`}
+          tabIndex={0}
+          onKeyDown={closeMenuOnEsc}
         >
           <ToggleSwitch isDark={isDark} setDark={setDark} />
           <Link
             to="/profile"
             onClick={() => setSettings(false)}
             className={`favorites-image-wrapper ${isActive && "filled"}`}
+            aria-label="Favorites profile"
           >
             {isActive && (
               <span className="favorites-num">{favorites.length}</span>
             )}
             <img
               src={chef}
-              alt="Image of chef cartoon"
+              alt="Cartoon chef avatar"
               className={`chef-img`}
             />
           </Link>
         </motion.div>
+        {/* Accessible settings button */}
         <button
           type="button"
           className={`settings-btn ${!isDark && "border-light"}`}
           onClick={toggleSettings}
+          aria-expanded={settings}
+          aria-label={settings ? "Close settings" : "Open settings"}
         >
           <SettingsSuggestIcon fontSize="large" className="settings-icon" />
           {settings ? (

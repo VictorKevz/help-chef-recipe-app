@@ -47,53 +47,62 @@ function Meals({
   const totalPages = Math.ceil(filteredData.length / pageItems); //Total num of pages as per array size
   return (
     <article className="meals-wrapper">
-      {loading && <p>Fetching data...</p>}
-      {error && <p>An error: {error}</p>}
-      {currentMeals &&
-        currentMeals.map((meal, i) => {
-          return (
-            <motion.div
-              key={meal?.idMeal}
-              variants={mealCardVariants}
-              initial="hidden"
-              animate="visible"
-              custom={i}
-              className={`meal-card ${!isDark && "meal-cards-light"}`}
-            >
-              <div className="meals-image-wrapper">
-                <img
-                  src={meal.strMealThumb}
-                  className="meals-img"
-                  alt={meal?.strMeal}
-                />
-              </div>
+  {loading && <p role="status" aria-live="polite">Fetching data...</p>}
+  {error && <p role="alert" aria-live="assertive">An error occurred: {error}</p>}
+  
+  {currentMeals &&
+    currentMeals.map((meal, i) => {
+      return (
+        <motion.div
+          key={meal?.idMeal}
+          variants={mealCardVariants}
+          initial="hidden"
+          animate="visible"
+          custom={i}
+          className={`meal-card ${!isDark && "meal-cards-light"}`}
+        >
+          <div className="meals-image-wrapper">
+            <img
+              src={meal.strMealThumb}
+              className="meals-img"
+              alt={`Image of ${meal?.strMeal}`}
+            />
+          </div>
 
-              <h3 className="meal-title">{meal?.strMeal}</h3>
+          <h3 className="meal-title">{meal?.strMeal}</h3>
 
-              <div className="meal-like-link-wrapper">
-                <NavLink className="meal-link" to={`/meal/${meal?.strMeal}`}>
-                  Learn More <LaunchIcon fontSize="large" />
-                </NavLink>
-              </div>
-            </motion.div>
-          );
-        })}
-      <div className="page-num-wrapper">
-        {Array.from({ length: totalPages }, (_, i) => {
-          const isActive = currentPageNumber === i + 1;
-          return (
-            <button
-            key={i}
-              type="button"
-              className={`page-num-btn ${isActive && "current"} ${!isDark && "num-light"}`}
-              onClick={() => setCurrentPageNumber(i + 1)}
+          <div className="meal-like-link-wrapper">
+            <NavLink 
+              className="meal-link" 
+              to={`/meal/${meal?.strMeal}`} 
+              aria-label={`Learn more about ${meal?.strMeal}`}
             >
-              {i + 1}
-            </button>
-          );
-        })}
-      </div>
-    </article>
+              Learn More <LaunchIcon fontSize="large" />
+            </NavLink>
+          </div>
+        </motion.div>
+      );
+    })
+  }
+
+  <div className="page-num-wrapper">
+    {Array.from({ length: totalPages }, (_, i) => {
+      const isActive = currentPageNumber === i + 1;
+      return (
+        <button
+          key={i}
+          type="button"
+          className={`page-num-btn ${isActive && "current"} ${!isDark && "num-light"}`}
+          onClick={() => setCurrentPageNumber(i + 1)}
+          aria-current={isActive ? "page" : undefined}
+          aria-label={`Go to page ${i + 1}`}
+        >
+          {i + 1}
+        </button>
+      );
+    })}
+  </div>
+</article>
   );
 }
 
